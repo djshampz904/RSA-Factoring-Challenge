@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+#import relevant libraries
+import sys
+# Factorize as many numbers as possible into a product of two smaller numbers.
+# Read lines from a file and pass them to a function that will factorize them.
+# Print the factors to the screen in a user-friendly format.
+file = sys.argv[1]
+
+def factors(n):
+    #get the first divisible number and end loop immediately
+    for i in range(2, n):
+        if n % i == 0:
+            print("{}={}*{}".format(n, n//i, i))
+            break
+
+with open(file) as f:
+    for line in f:
+        line = line.strip()
+        line = int(line)
+        factors(line)
+        
